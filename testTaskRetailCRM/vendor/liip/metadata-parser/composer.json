@@ -1,0 +1,68 @@
+{
+    "name": "liip/metadata-parser",
+    "description": "Parser for metadata",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Liip AG",
+            "homepage": "http://www.liip.ch"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/liip/metadata-parser",
+        "issues": "https://github.com/liip/metadata-parser/issues"
+    },
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-json": "*",
+        "psr/log": "^1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "v2.18.4",
+        "jms/serializer": "^2.3 || ^3",
+        "phpstan/phpstan": "^0.12.71",
+        "phpstan/phpstan-phpunit": "^0.12",
+        "phpunit/phpunit": "^8.5.15 || ^9.5"
+    },
+    "suggest": {
+        "jms/serializer": "^2 || ^3"
+    },
+    "conflict": {
+        "doctrine/annotations": "< 1.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Liip\\MetadataParser\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Liip\\MetadataParser\\": "tests/"
+        }
+    },
+    "scripts": {
+        "fix-cs": "vendor/bin/php-cs-fixer fix -v",
+        "cs-fixer": "vendor/bin/php-cs-fixer fix --dry-run --diff --diff-format udiff -v",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "phpstan-tests": "vendor/bin/phpstan analyse -c phpstan.tests.neon",
+        "phpstan-all": [
+            "@phpstan",
+            "@phpstan-tests"
+        ],
+        "phpunit": "vendor/bin/phpunit",
+        "ci": [
+            "@cs-fixer",
+            "@phpstan-all",
+            "@phpunit"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.3.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

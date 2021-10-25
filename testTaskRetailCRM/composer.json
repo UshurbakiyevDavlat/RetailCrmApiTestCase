@@ -1,0 +1,11 @@
+{
+    "require": {
+        "retailcrm/api-client-php": "~6.0"
+    },
+    "extra": {
+        "compile-whitelist": [
+            "retailcrm/api-client-php"
+        ],
+        "compile-mode": "whitelist"
+    }
+}
